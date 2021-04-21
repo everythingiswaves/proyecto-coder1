@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Contacto - Everything is Waves</title>
+	<meta charset=utf-8>
+	<meta name=description content="EverythingIsWaves (Nicolás). Artista multimedia con base en Uruguay. Programacion creativa + Instalaciones Interactivas + Contenido audiovisual">
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<meta name="keywords" contetn="artista, arte, digital, generativo, interactividad, processing, tecnologia, portfolio">
+	<link rel="stylesheet" type="text/css" href="../styles/style.css">
+</head>
+<body class="fondoContacto">
+	<header class="header">
+		<img src="../media/logo.png" alt="logo" class="logo">
+		<div class="divListaHeader">
+			<ul class="listaHeader">
+			    <li><a href="../index.html">Inicio</a></li>
+			    <li><a href="arte.html">Arte</a></li>
+			    <li><a href="cv.html">CV</a></li>
+			    <li><a href="contacto.html">Contacto</a></li>
+			</ul>
+		</div>
+	</header>
+	<div class="page-container">
+		<h1 class= "contactoTitulo">Contacto</h1>
+		<h2 class="contactoSubtitulo">Completá el formulario o mandame un mail a evw@gmail.com</h2>
+		<div class="contactoFlex">
+			<form action="recibe.html" method="GET" class="contactoForm">
+				<label for="campo_nombre">Nombre</label><br>
+				<input type="text" name="campo_nombre" ><br>
+
+				<label for="campo_email">Email</label><br>
+				<input type="email" name="campo_email" placeholder="nombre@servicio.com" ><br>
+
+				<label for="tipo_consulta">Tipo de mensaje</label><br>
+				<select name="tipo_consulta">
+					<option value="Consulta">Consulta</option>
+					<option value="Problema">Problema</option>
+					<option value="Otro">Otro</option>
+				</select><br>
+
+				<label for="campo_mensaje">Mensaje</label><br>
+				<textarea name="campo_mensaje"></textarea>
+
+				<label for="campo_newsletter"></label><br>
+				<input type="checkbox" name="campo_newsletter">
+				<span class="fontGoogle">Desea subscribirse a mi newsletter?</span><br>
+
+				<input class="botonesForm" type="submit" name="enviar" value="Enviar">
+				<input class="botonesForm" type="reset" name="reset" value="Reset">
+			</form>
+		</div>
+		<footer class="footerFlex footer">
+			<a class="imgFooter" title="instagram" href="https://www.instagram.com/everything.is.waves/"><img class="imgFooter" src="../media/insta.png" alt="insta"></a>
+
+			<a class="imgFooter" title="twitter" href="https://twitter.com/ev_is_waves"><img class="imgFooter" src="../media/twitter.png" alt="twitter"></a>
+			
+			<a class="imgFooter" title="mail" href="contacto.html"><img class="imgFooter" src="../media/mail.png" alt="mail"></a>
+		</footer>
+	</div>
+</body>
+</html>
