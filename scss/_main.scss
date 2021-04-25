@@ -1,0 +1,158 @@
+body { 	
+	margin: 0;
+	padding:0;
+}
+
+/*HEADER*/
+.header{
+	display: flex;
+	flex-flow: row nowrap;
+	position: sticky;
+	top:0px;
+	background: $gradiente;
+}
+/*Logo header*/
+.header__logo{
+	width:8%;
+	height:8%;
+}
+/*Lista del header*/
+.divListaHeader{
+	align-self: flex-end;	
+}
+
+.header__lista{
+	display: flex;
+	flex-flow: row wrap;
+	list-style-type: none;
+	
+	li{
+		border-top: solid 2px;
+		border-bottom: solid 2px;
+		border-color: white;
+
+			&:hover{
+  				background-color: $hoverColor;
+  			}
+
+  		a{
+		 	color: white;
+		 	font-size: 1.7rem;
+		 	font-family: $fontPrincipal;
+		 	text-align: center;
+		 	padding: 1rem;
+		 	text-decoration: none;
+		}
+	}
+}
+
+/*INDEX*/
+.intro{
+	display: flex;
+	flex-flow: row nowrap;
+	margin: 8px 20px 20px 20px;
+}
+.intro__texto{
+	font-family: $fontPrincipal;
+	font-size: 1.6rem;
+	width: 50%;
+	margin-right: 5px;
+}
+.arteIndex{
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-evenly;
+	margin: 20px;
+}
+
+/*FLEX-BOX*/
+/*PARA CELULARES VERTICALES*/
+@media (max-width: 768px) {
+	.header{
+		display: flex;
+		flex-flow: column wrap;
+	}
+	.intro{
+		display: flex;
+		flex-flow: column wrap;
+		margin: 8px 20px 20px 20px;
+	}
+	.intro__texto{
+		font-family: $fontPrincipal;
+		font-size: 1.1em;
+		width: 80%;
+		margin-right: 5px;
+		align-self: center;
+	}
+	.arteIndex{
+		display: flex;
+		flex-flow: column wrap;
+		justify-content: space-evenly;
+	}
+}
+/*--------------------------------*/
+
+.intro__nombre{
+	font-size: 3em;
+	font-family: $fontPrincipal;
+  	margin-top: 2px;
+  	margin-bottom: 5px;
+  	display: inline;/*para que siempre tenga fondo negro*/
+	color: white;
+  	background: black;
+  	font-weight: normal;
+		&:hover {
+		color: black;
+  		background: white;
+  		}
+}
+/*img landscape*/
+.spanLandscape{
+	width: 50%;
+	align-self: center;
+}
+.intro__landscape{
+	max-width: 100%;
+}
+/*--------------*/
+/*IMAGENES TIPO DE ARTE*/
+
+.arteIndex__img{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	transition: transform 0.5s;
+		&:hover{
+			transform: scale(1.3,1.3);
+		}
+	h2{
+		color: $rosado;
+		font-family: $fontPrincipal;
+	}
+	img{
+		width:20vw;
+		height: 20vw;
+		border: 3px solid black;
+	}
+	video{
+		width:20vw;
+		height: 20vw;
+		border: 3px solid black;	
+	}
+}
+/*--------------------------------*/
+/*FOOTER*/
+.footer{
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	height: 100%;
+	margin-top: 50px;
+	background: $gradiente;
+	clear: left;/*para el CV*/
+}
+.footer__img{
+	width:30px;
+	margin:3px 5% 2px 5%;
+}
+/*------------------------*/
