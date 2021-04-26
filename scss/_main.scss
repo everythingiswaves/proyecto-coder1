@@ -140,7 +140,82 @@ body {
 		border: 3px solid black;	
 	}
 }
-/*--------------------------------*/
+
+/*ARTE*/
+.gridArte {
+   display: grid;  
+   grid-template-columns: $medidaGridArte $medidaGridArte $medidaGridArte $medidaGridArte; 
+   grid-template-rows: $medidaGridArte $medidaGridArte $medidaGridArte;	
+   grid-template-areas: 
+    "imgChica imgGrande imgGrande imgAlta"
+    "none imgGrande imgGrande imgAlta"
+    "imgLarga imgLarga imgLarga imgChica2";
+    grid-gap: $gridGapArte;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+@mixin imgArte($width, $height,$gridArea){
+	grid-area: $gridArea;
+	position: relative;
+	img{
+		width: $width;
+		height: $height;
+	}
+	//Para que aparezca la info
+	&:hover div{
+		visibility: visible;
+  		opacity: 1;
+	}
+}
+.imgChica{
+	@include imgArte($medidaGridArte, $medidaGridArte, imgChica);
+}
+.imgChica2{
+	@include imgArte($medidaGridArte, $medidaGridArte, imgChica2);
+}
+.imgGrande{
+	@include imgArte($medidaGridArte*2, $medidaGridArte*2, imgGrande);
+}
+.imgLarga{
+	@include imgArte($gridGapArte + $medidaGridArte*3 , $medidaGridArte, imgLarga);
+}
+.imgAlta{
+	@include imgArte($medidaGridArte, $gridGapArte + $medidaGridArte*2, imgAlta);
+}
+
+/*HOVER PARA GRILLA*/
+@mixin hoverImgArte($width, $height){
+	position: absolute;
+	top:0;
+	left:0;
+	width: $width;
+	height: $height;
+  	background: rgba(230, 230, 230, 0.9);
+  	color: rgba(253,29,109,1);
+  	font-family: 'Source Code Pro', monospace;
+  	font-size: 1.2rem;
+  	text-align: center;
+	vertical-align: middle; 
+	overflow-wrap: break-word;
+  	visibility: hidden;
+  	opacity: 0;
+  	transition: opacity .2s, visibility .2s;
+}
+.hoverImgArteChica{
+	@include hoverImgArte($medidaGridArte, $medidaGridArte);
+}
+.hoverImgArteGrande{
+	@include hoverImgArte($medidaGridArte*2, $medidaGridArte*2);
+}
+.hoverImgArteLarga{
+	@include hoverImgArte($gridGapArte + $medidaGridArte*3 , $medidaGridArte)
+}
+.hoverImgArteAlta{
+	@include hoverImgArte($medidaGridArte, $gridGapArte + $medidaGridArte*2)
+}
+/*-----------------------------------*/
+
 /*FOOTER*/
 .footer{
 	display: flex;
@@ -151,8 +226,7 @@ body {
 	background: $gradiente;
 	clear: left;/*para el CV*/
 }
-.footer__img{
+.footer__img {
 	width:30px;
 	margin:3px 5% 2px 5%;
 }
-/*------------------------*/
