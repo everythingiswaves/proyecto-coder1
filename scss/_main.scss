@@ -145,8 +145,8 @@ body {
 /*ARTE*/
 .gridArte {
    display: grid;  
-   grid-template-columns: $medidaGridArte $medidaGridArte $medidaGridArte $medidaGridArte; 
-   grid-template-rows: $medidaGridArte $medidaGridArte $medidaGridArte;	
+   grid-template-columns: repeat(4, $medidaGridArte); 
+   grid-template-rows: repeat(3, $medidaGridArte);	
    grid-template-areas: 
     "imgChica imgGrande imgGrande imgAlta"
     "none imgGrande imgGrande imgAlta"
@@ -241,27 +241,17 @@ body {
 	grid-template-rows: repeat(3,100px);
 	text-align: center;
 	grid-template-areas:
-	"habilidadUnoTexto habilidadUnoSlider"
-	"habilidadDosTexto habilidadDosSlider"
-	"habilidadTresTexto habilidadTresSlider";
+	"habilidad1Texto habilidad1Slider"
+	"habilidad2Texto habilidad2Slider"
+	"habilidad3Texto habilidad3Slider";
 }
-.habilidadUnoTexto {
-	grid-area: habilidadUnoTexto;
-}
-.habilidadUnoSlider {
-	grid-area: habilidadUnoSlider;
-}
-.habilidadDosTexto {
-	grid-area: habilidadDosTexto;
-}
-.habilidadDosSlider {
-	grid-area: habilidadDosSlider;
-}
-.habilidadTresTexto {
-	grid-area: habilidadTresTexto;
-}
-.habilidadTresSlider {
-	grid-area: habilidadTresSlider;
+@for $i from 1 through 3 {
+    .habilidad#{$i}Texto { 
+  	    grid-area: habilidad#{$i}Texto; 
+  	}
+	.habilidad#{$i}Slider { 
+		grid-area: habilidad#{$i}Slider; 
+	}
 }
 
 /*SLIDERS Y BARRAS*/
@@ -284,18 +274,8 @@ body {
 	left:$largo;
 	border-radius: 10px;
 }
-.handler{
-	@include handler(slide, 250px);
-}
 
-.handler2 {
-    @include handler(slide2, 120px);
-}
-
-.handler3 {
-    @include handler(slide3, 200px);
-}
-
+$largos: 250px, 120px, 200px; //Largos de los sliders 
 /*ANIMACIONES DE HABILIDADES*/
 @mixin animacionSlide($largo){
 	0% {
@@ -305,21 +285,20 @@ body {
     	left: $largo;
   	}
 }
-@keyframes slide {
-    @include animacionSlide(250px)
+
+//For each para crear las clases handler y los keyframes
+@each $largo in $largos {
+	$i: index($largos, $largo);//Para tener el numero de index
+
+	.handler#{$i} {
+    	@include handler(slide#{$i}, $largo);
+	}
+
+	@keyframes slide#{$i} {
+		@include animacionSlide($largo)
+	}
 }
-
-@keyframes slide2 {
-	@include animacionSlide(120px)
-}
-
-@keyframes slide3 {
-    @include animacionSlide(200px)
-}
-/*-----------------*/
-
-
-
+/*------------------------*/
 /*FOOTER*/
 .footer{
 	display: flex;
