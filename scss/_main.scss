@@ -10,6 +10,7 @@ body {
 	position: sticky;
 	top:0px;
 	background: $gradiente;
+	z-index: 2;
 }
 /*Logo header*/
 .header__logo{
@@ -191,9 +192,9 @@ body {
 	left:0;
 	width: $width;
 	height: $height;
-  	background: rgba(230, 230, 230, 0.9);
-  	color: rgba(253,29,109,1);
-  	font-family: 'Source Code Pro', monospace;
+  	background: $hoverColorArte;
+  	color: $rosado;
+  	font-family: $fontPrincipal;
   	font-size: 1.2rem;
   	text-align: center;
 	vertical-align: middle; 
@@ -215,6 +216,109 @@ body {
 	@include hoverImgArte($medidaGridArte, $gridGapArte + $medidaGridArte*2)
 }
 /*-----------------------------------*/
+/*CV*/
+.listaCV{
+	float: left;
+	font-family: $fontPrincipal;
+	font-size: 2rem;
+}
+.spanHabilidades{
+	float: right;
+	font-family: $fontPrincipal;
+	border: 3px solid black;
+	margin-right: 10%;
+	font-size: 1.8rem;
+	background: $gradiente;
+	top: 23%;
+	position: sticky;
+}
+
+/*Grilla */
+.grillaHabilidades {
+	display: grid;
+	margin: 40px 0 40px 0;
+	grid-template-columns: repeat(2,300px);
+	grid-template-rows: repeat(3,100px);
+	text-align: center;
+	grid-template-areas:
+	"habilidadUnoTexto habilidadUnoSlider"
+	"habilidadDosTexto habilidadDosSlider"
+	"habilidadTresTexto habilidadTresSlider";
+}
+.habilidadUnoTexto {
+	grid-area: habilidadUnoTexto;
+}
+.habilidadUnoSlider {
+	grid-area: habilidadUnoSlider;
+}
+.habilidadDosTexto {
+	grid-area: habilidadDosTexto;
+}
+.habilidadDosSlider {
+	grid-area: habilidadDosSlider;
+}
+.habilidadTresTexto {
+	grid-area: habilidadTresTexto;
+}
+.habilidadTresSlider {
+	grid-area: habilidadTresSlider;
+}
+
+/*SLIDERS Y BARRAS*/
+.slider{
+	border-bottom: 5px solid black;
+	width: 250px;
+	position: relative;
+	top: 28px;
+	z-index: 1;
+}
+
+@mixin handler($slide,$largo){
+	width: 20px;
+	height: 20px;
+	background: black;
+	position: relative;
+	top: 12.5px;
+	z-index: 2;
+	animation: $slide 3s ;
+	left:$largo;
+	border-radius: 10px;
+}
+.handler{
+	@include handler(slide, 250px);
+}
+
+.handler2 {
+    @include handler(slide2, 120px);
+}
+
+.handler3 {
+    @include handler(slide3, 200px);
+}
+
+/*ANIMACIONES DE HABILIDADES*/
+@mixin animacionSlide($largo){
+	0% {
+		left: 0;
+  	}
+  	100%{
+    	left: $largo;
+  	}
+}
+@keyframes slide {
+    @include animacionSlide(250px)
+}
+
+@keyframes slide2 {
+	@include animacionSlide(120px)
+}
+
+@keyframes slide3 {
+    @include animacionSlide(200px)
+}
+/*-----------------*/
+
+
 
 /*FOOTER*/
 .footer{
@@ -229,4 +333,17 @@ body {
 .footer__img {
 	width:30px;
 	margin:3px 5% 2px 5%;
+}
+/*PARA CUANDO LA PAGINA NO SOBREPASA EL VH*/
+.page-container {
+  position: relative;
+  min-height: 100vh;
+  z-index: -1;
+}
+
+.footer--absoluto {
+  position: absolute;
+  bottom: -45px;
+  width: 100%;
+  height: 45px;
 }
