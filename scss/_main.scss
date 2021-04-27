@@ -113,55 +113,7 @@ body {
 		border: 3px solid black;	
 	}
 }
-/*MEDIA QUERY PARA CELULARES VERTICALES*/
-@media (max-width: 768px) {
-	.header{
-		display: flex;
-		flex-flow: row wrap;
-		align-items: center;
-	}
-	.header__logo{
-		width:30%;
-		height:30%;
-	}
-	.header__lista{
-		display: flex;
-		flex-flow: column wrap;
-		padding: 0px;
-		li{
-			border: 0px;
-			a{
-				font-size: 1.3rem;
-			}
-		}
 
-	}
-	.intro{
-		display: flex;
-		flex-flow: column wrap;
-		margin: 8px 20px 20px 20px;
-	}
-	.intro__texto{
-		font-family: $fontPrincipal;
-		font-size: 1.1em;
-		width: 90%;
-		margin-right: 5px;
-		align-self: center;
-	}
-	.spanLandscape{
-		width: 80%
-	};
-	.arteIndex{
-		display: flex;
-		flex-flow: column wrap;
-		justify-content: space-evenly;
-	}
-	.arteIndex__img{
-		&:hover{
-			transform: none;
-		}
-	}
-}
 /*--------------------------------*/
 
 /*ARTE*/
@@ -217,7 +169,7 @@ body {
   	background: $hoverColorArte;
   	color: $rosado;
   	font-family: $fontPrincipal;
-  	font-size: 1.2rem;
+  	font-size: 1.2em;
   	text-align: center;
 	vertical-align: middle; 
 	overflow-wrap: break-word;
@@ -237,6 +189,7 @@ body {
 .hoverImgArteAlta{
 	@include hoverImgArte($medidaGridArte, $gridGapArte + $medidaGridArte*2)
 }
+
 /*-----------------------------------*/
 /*CV*/
 .listaCV{
@@ -391,11 +344,12 @@ textarea{
 	justify-content: center;
 	height: 100%;
 	margin-top: 50px;
+	margin-bottom: 0px;
 	background: $gradiente;
 	clear: left;/*para el CV*/
 }
 .footer__img {
-	width:30px;
+	width:4vh;
 	margin:3px 5% 2px 5%;
 }
 /*PARA CUANDO LA PAGINA NO SOBREPASA EL VH*/
@@ -407,7 +361,73 @@ textarea{
 
 .footer--absoluto {
   position: absolute;
-  bottom: -45px;
+  bottom: -4vh;
   width: 100%;
-  height: 45px;
+  height: 4vh;
+}
+
+/*MEDIA QUERY PARA CELULARES VERTICALES*/
+@media (max-width: 768px) {
+	.header{
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+	}
+	.header__logo{
+		width:30%;
+		height:30%;
+	}
+	.header__lista{
+		display: flex;
+		flex-flow: column wrap;
+		padding: 0px;
+		li{
+			border: 0px;
+			a{
+				font-size: 1.3rem;
+				padding: 0.2rem;
+			}
+		}
+
+	}
+	.intro{
+		display: flex;
+		flex-flow: column wrap;
+		margin: 8px 20px 20px 20px;
+	}
+	.intro__texto{
+		font-family: $fontPrincipal;
+		font-size: 1.1em;
+		width: 90%;
+		margin-right: 5px;
+		align-self: center;
+	}
+	.spanLandscape{
+		width: 80%
+	};
+	.arteIndex{
+		display: flex;
+		flex-flow: column wrap;
+		justify-content: space-evenly;
+	}
+	.arteIndex__img{
+		&:hover{
+			transform: none;
+		}
+	}
+	/*falta optmizar*/
+	.hoverImgArteChica{
+		font-size: 0.4em;
+	}
+	.hoverImgArteGrande{
+		font-size: 0.4em;
+	}
+	.hoverImgArteLarga{
+		font-size: 0.4em;
+	}
+	.hoverImgArteAlta{
+		font-size: 0.4em;
+	}
+
+
 }
