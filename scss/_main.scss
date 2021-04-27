@@ -156,6 +156,11 @@ body {
 		flex-flow: column wrap;
 		justify-content: space-evenly;
 	}
+	.arteIndex__img{
+		&:hover{
+			transform: none;
+		}
+	}
 }
 /*--------------------------------*/
 
