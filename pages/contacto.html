@@ -6,13 +6,14 @@
 	<meta name=description content="EverythingIsWaves (Nicolás). Artista multimedia con base en Uruguay. Programacion creativa + Instalaciones Interactivas + Contenido audiovisual">
 	<meta name=viewport content="width=device-width, initial-scale=1">
 	<meta name="keywords" contetn="artista, arte, digital, generativo, interactividad, processing, tecnologia, portfolio">
-	<link rel="stylesheet" type="text/css" href="../styles/style.css">
+	<link rel="stylesheet" type="text/css" href="../styles/styleSCSS.css">
 </head>
 <body class="fondoContacto">
 	<header class="header">
-		<img src="../media/logo.png" alt="logo" class="logo">
+		<img src="../media/logo.png" alt="logo" class="header__logo">
+
 		<div class="divListaHeader">
-			<ul class="listaHeader">
+			<ul class="header__lista">
 			    <li><a href="../index.html">Inicio</a></li>
 			    <li><a href="arte.html">Arte</a></li>
 			    <li><a href="cv.html">CV</a></li>
@@ -21,8 +22,8 @@
 		</div>
 	</header>
 	<div class="page-container">
-		<h1 class= "contactoTitulo">Contacto</h1>
-		<h2 class="contactoSubtitulo">Completá el formulario o mandame un mail a evw@gmail.com</h2>
+		<h1 class= "titulo titulo--margin">Contacto</h1>
+		<h2 class="subtitulo">Completá el formulario o mandame un mail a evw@gmail.com</h2>
 		<div class="contactoFlex">
 			<form action="recibe.html" method="GET" class="contactoForm">
 				<label for="campo_nombre">Nombre</label><br>
@@ -49,12 +50,12 @@
 				<input class="botonesForm" type="reset" name="reset" value="Reset">
 			</form>
 		</div>
-		<footer class="footerFlex footer">
-			<a class="imgFooter" title="instagram" href="https://www.instagram.com/everything.is.waves/"><img class="imgFooter" src="../media/insta.png" alt="insta"></a>
+		<footer class="footer footer--absoluto">
+			<a class="footer__img" title="instagram" href="https://www.instagram.com/everything.is.waves/"><img class="footer__img" src="../media/insta.png" alt="insta"></a>
 
-			<a class="imgFooter" title="twitter" href="https://twitter.com/ev_is_waves"><img class="imgFooter" src="../media/twitter.png" alt="twitter"></a>
-			
-			<a class="imgFooter" title="mail" href="contacto.html"><img class="imgFooter" src="../media/mail.png" alt="mail"></a>
+			<a class="footer__img" title="twitter" href="https://twitter.com/ev_is_waves"><img class="footer__img" src="../media/twitter.png" alt="twitter"></a>
+		
+			<a class="footer__img" title="mail" href="pages/contacto.html"><img class="footer__img" src="../media/mail.png" alt="mail"></a>
 		</footer>
 	</div>
 </body>

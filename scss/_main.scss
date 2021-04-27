@@ -299,6 +299,69 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 	}
 }
 /*------------------------*/
+
+/*CONTACTO*/
+.titulo{
+	color: $rosado;
+	font-size: 2rem;
+	font-family: $fontPrincipal;
+}
+.titulo--margin{
+	margin-left:0.4%;
+}
+.titulo--center{
+	text-align: center;
+}
+.subtitulo{
+	color: $rosado;
+	font-size: 1.5rem;
+	font-weight: normal;
+	font-family: $fontPrincipal;
+	margin-left:0.4%;
+}
+.contactoFlex{
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	padding-bottom: 40px;
+}
+/*Fondo pagina contacto*/
+.fondoContacto{
+	background-image: url("../media/fondoForm.png");
+	background-size: 100vw;
+	//z-index: 0;
+}
+/*FORMULARIO DE NEWSLETTER*/
+.contactoForm{
+	background: $gradiente;
+	display: inline-block;
+	width: 15%;
+	padding: 1%;
+	margin-top:0.8%;
+	margin-left:0.4%;
+	color: white;
+}
+label{
+	font-size: 170%;
+	font-family: $fontPrincipal;
+}
+textarea{
+	width:80%;
+	height:90px;
+	resize:none
+}
+.botonesForm{
+	font-family: $fontPrincipal;
+	font-weight: bold;
+	margin-top: 5%;
+	margin-right: 5%;
+	padding: 3%
+}
+.fontGoogle{
+	font-family: $fontPrincipal;
+}
+/*----------------------------*/
+
 /*FOOTER*/
 .footer{
 	display: flex;
