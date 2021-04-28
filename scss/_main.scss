@@ -365,13 +365,6 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
   z-index: -1;
 }
 
-.footer--absoluto {
-  position: absolute;
-  bottom: -4vh;
-  width: 100%;
-  height: 4vh;
-}
-
 /*MEDIA QUERY PARA CELULARES VERTICALES*/
 @media (max-width: 768px) {
 	.header{
