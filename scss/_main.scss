@@ -202,6 +202,7 @@ body {
 	font-family: $fontPrincipal;
 	border: 3px solid black;
 	margin-right: 10%;
+	margin-bottom: 50px;
 	font-size: 1.8rem;
 	background: $gradiente;
 	top: 23%;
@@ -310,20 +311,25 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 .contactoForm{
 	background: $gradiente;
 	display: inline-block;
-	width: 15%;
+	width: 25vw;
 	padding: 1%;
 	margin-top:0.8%;
 	margin-left:0.4%;
 	color: white;
-}
-label{
-	font-size: 170%;
-	font-family: $fontPrincipal;
-}
-textarea{
-	width:80%;
-	height:90px;
-	resize:none
+
+	label{
+		font-size: 2em;
+		font-family: $fontPrincipal;
+		size: 80%;
+	}
+	textarea{
+		width:80%;
+		height:90px;
+		resize:none
+	}
+	.textInput{
+		width:80%;
+	}
 }
 .botonesForm{
 	font-family: $fontPrincipal;
@@ -408,11 +414,19 @@ textarea{
 	.arteIndex{
 		display: flex;
 		flex-flow: column wrap;
-		justify-content: space-evenly;
+		//justify-content: space-evenly;
 	}
 	.arteIndex__img{
 		&:hover{
 			transform: none;
+		}
+		img{
+			width:35vw;
+			height:35vw;
+		}
+		video{
+			width:35vw;
+			height:35vw;
 		}
 	}
 	/*falta optmizar*/
@@ -429,5 +443,69 @@ textarea{
 		font-size: 0.4em;
 	}
 
+	/*CV*/
+	.spanHabilidades{
+		display: inline-block;
+		float: left;
+		margin-left: 5%;
+		margin-bottom: 0px;
+		font-size: 1rem;
+		position: static;
+	}
+
+	/*Grilla */
+	.grillaHabilidades {
+		grid-template-columns: repeat(2,150px);
+		grid-template-rows: repeat(3,50px);
+	}
+
+	/*SLIDERS Y BARRAS*/
+	.slider{
+		border-bottom: 3px solid black;
+		width: 125px;
+		position: relative;
+		top: 16px;
+		z-index: 1;
+	}
+
+	@mixin handler($slide,$largo){
+		width: 10px;
+		height: 10px;
+		background: black;
+		position: relative;
+		top: 7px;
+		z-index: 2;
+		animation: $slide 3s ;
+		left:$largo;
+		border-radius: 5px;
+	}
+
+	$largos: 120px, 60px, 100px; //Largos de los sliders 
+	/*ANIMACIONES DE HABILIDADES*/
+	@mixin animacionSlide($largo){
+		0% {
+			left: 0;
+	  	}
+	  	100%{
+	    	left: $largo;
+	  	}
+	}
+
+	//For each para crear las clases handler y los keyframes
+	@each $largo in $largos {
+		$i: index($largos, $largo);//Para tener el numero de index
+
+		.handler#{$i} {
+	    	@include handler(slide#{$i}, $largo);
+		}
+
+		@keyframes slide#{$i} {
+			@include animacionSlide($largo)
+		}
+	}
+
+	.contactoForm{
+		width: 50vw;
+	}
 
 }
