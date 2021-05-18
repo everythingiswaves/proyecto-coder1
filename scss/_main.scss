@@ -79,7 +79,6 @@ body {
   		background: white;
   		}
 }
-/*img landscape*/
 .spanLandscape{
 	width: 50%;
 	align-self: center;
@@ -221,6 +220,7 @@ body {
 	"habilidad2Texto habilidad2Slider"
 	"habilidad3Texto habilidad3Slider";
 }
+//Clase para cada elemento de la grilla
 @for $i from 1 through 3 {
     .habilidad#{$i}Texto { 
   	    grid-area: habilidad#{$i}Texto; 
@@ -395,19 +395,17 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 		margin: 8px 20px 20px 20px;
 	}
 	.intro__texto{
-		font-family: $fontPrincipal;
 		font-size: 1.1em;
 		width: 90%;
 		margin-right: 5px;
 		align-self: center;
 	}
 	.spanLandscape{
-		width: 80%
-	};
+		width: 80%;
+	}
 	.arteIndex{
 		display: flex;
 		flex-flow: column wrap;
-		//justify-content: space-evenly;
 	}
 	.arteIndex__img{
 		&:hover{
