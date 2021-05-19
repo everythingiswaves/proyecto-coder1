@@ -74,12 +74,12 @@ a{
   	margin-top: 2px;
   	margin-bottom: 5px;
   	display: inline;/*para que siempre tenga fondo negro*/
-	color: white;
+	color: $rosado;
   	background: black;
   	font-weight: normal;
 		&:hover {
 		color: black;
-  		background: white;
+  		background: $rosado;
   		}
 }
 .spanLandscape{
@@ -315,17 +315,19 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 	font-family: $fontPrincipal;
 }
 .titulo--margin{
-	margin-left:0.4%;
+	margin-left:1%;
 }
 .titulo--center{
 	text-align: center;
 }
 .subtitulo{
+	display: inline-block;
+	background-color: black;
 	color: $rosado;
 	font-size: 1.5rem;
 	font-weight: normal;
 	font-family: $fontPrincipal;
-	margin-left:0.4%;
+	margin-top:0;
 }
 .contactoFlex{
 	display: flex;
@@ -342,6 +344,10 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 }
 /*FORMULARIO DE NEWSLETTER*/
 .contactoForm{
+	*{
+		font-size: 1em;
+		font-family: $fontPrincipal;
+	}
 	background: $gradiente;
 	display: inline-block;
 	width: 25vw;
@@ -351,8 +357,11 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 	color: white;
 	label{
 		font-size: 2em;
-		font-family: $fontPrincipal;
 		size: 80%;
+	}
+	select{
+		width: 9em;
+		height: 2em;
 	}
 	textarea{
 		width:80%;
@@ -361,6 +370,7 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 	}
 	.textInput{
 		width:80%;
+		height:35px;
 	}
 	*{
 		border-width: 0;
@@ -493,7 +503,6 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 	.slider{
 		border-bottom: 3px solid black;
 		width: 125px;
-		position: relative;
 		top: 16px;
 		z-index: 1;
 	}
@@ -545,13 +554,11 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 //CELUALRES PEQUEÑOS HORIZONTALES
 @media (max-width: 768px) and (orientation: landscape) {
 	.header{
-		display: flex;
 		flex-flow: row wrap;
 		align-items: center;
 	}
 	//INDEX
 	.intro{
-		display: flex;
 		flex-flow: column wrap;
 		margin: 8px 20px 20px 20px;
 	}
@@ -588,7 +595,6 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 	.slider{
 		border-bottom: 3px solid black;
 		width: 125px;
-		position: relative;
 		top: 16px;
 		z-index: 1;
 	}
@@ -596,10 +602,7 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 	@mixin handler($slide,$largo){
 		width: 10px;
 		height: 10px;
-		background: black;
-		position: relative;
 		top: 7px;
-		z-index: 2;
 		animation: $slide 3s ;
 		left:$largo;
 		border-radius: 5px;
@@ -645,7 +648,7 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 }
 
 //TABLETS T IPADS 
-@media (min-width: 768px) and (max-width:1024px) {
+@media (min-width: 768px) and (max-width:1028px) {
 	.spanHabilidades{
 		display: inline-block;
 		float: left;
@@ -665,18 +668,13 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 	.slider{
 		border-bottom: 3px solid black;
 		width: 125px;
-		position: relative;
 		top: 16px;
-		z-index: 1;
 	}
 
 	@mixin handler($slide,$largo){
 		width: 10px;
 		height: 10px;
-		background: black;
-		position: relative;
 		top: 7px;
-		z-index: 2;
 		animation: $slide 3s ;
 		left:$largo;
 		border-radius: 5px;
@@ -727,69 +725,19 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 	}
 }
 
-//Para las habilidades en la pagina CV con tables horizontales
-@media (min-width: 1024px) and (max-width: 1850px) {
+//Para las habilidades en la pagina CV con tablets horizontales
+@media (min-width: 1028px) and (max-width: 1850px) {
 	.listaCV{
-		display: inline-block;
+		display: block;
 		float: none;
 	}
 	.spanHabilidades{
 		display: inline-block;
-		float: left;
+		float: right;
 		margin-left: 5%;
+		margin-right: 5%;
 		margin-bottom: 0px;
 		font-size: 1.5rem;
 		position: static;
-	}
-
-	//Grilla 
-	.grillaHabilidades {
-		grid-template-columns: repeat(2,300px);
-		grid-template-rows: repeat(3,80px);
-	}
-
-	//SLIDERS Y BARRAS
-	.slider{
-		border-bottom: 3px solid black;
-		width: 220px;
-		position: relative;
-		top: 32px;
-		z-index: 1;
-	}
-
-	@mixin handler($slide,$largo){
-		width: 10px;
-		height: 10px;
-		background: black;
-		position: relative;
-		top: 7px;
-		z-index: 2;
-		animation: $slide 3s ;
-		left:$largo;
-		border-radius: 5px;
-	}
-
-	$largos: 215px, 130px, 175px; //Largos de los sliders 
-	//ANIMACIONES DE HABILIDADES
-	@mixin animacionSlide($largo){
-		0% {
-			left: 0;
-	  	}
-	  	100%{
-	    	left: $largo;
-	  	}
-	}
-
-	//For each para crear las clases handler y los keyframes
-	@each $largo in $largos {
-		$i: index($largos, $largo);//Para tener el numero de index
-
-		.handler#{$i} {
-	    	@include handler(slide#{$i}, $largo);
-		}
-
-		@keyframes slide#{$i} {
-			@include animacionSlide($largo);
-		}
 	}
 }
