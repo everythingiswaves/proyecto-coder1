@@ -171,7 +171,7 @@ a{
   	background: $hoverColorArte;
   	color: $rosado;
   	font-family: $fontPrincipal;
-  	
+	font-size: 1.8em;  	
   	text-align: center;
 	vertical-align: middle; 
 	overflow-wrap: break-word;
@@ -180,19 +180,15 @@ a{
   	transition: opacity .2s, visibility .2s;
 }
 .hoverImgArteChica{
-	font-size: 1.8em;
 	@include hoverImgArte($medidaGridArte, $medidaGridArte);
 }
 .hoverImgArteGrande{
-	font-size: 1.8em;
 	@include hoverImgArte($medidaGridArte*2, $medidaGridArte*2);
 }
 .hoverImgArteLarga{
-	font-size: 1.8em;
 	@include hoverImgArte($gridGapArte + $medidaGridArte*3 , $medidaGridArte)
 }
 .hoverImgArteAlta{
-	font-size: 1.8em;
 	@include hoverImgArte($medidaGridArte, $gridGapArte + $medidaGridArte*2)
 }
 
@@ -219,7 +215,7 @@ a{
 }
 //Bullets para links
 .links li::marker {
-  	content: "⏵";
+  	content: "‣";
   	animation: pulse 5s infinite alternate;
 }
 //Animación de color de bullets
