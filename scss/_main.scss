@@ -216,7 +216,7 @@ a{
 //Bullets para links
 .links li::marker {
   	content: "►";
-  	animation: pulse 5s infinite alternate;
+  	animation: pulse 1s infinite alternate;
 }
 //Animación de color de bullets
 @keyframes pulse {
@@ -349,7 +349,6 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 	margin-top:0.8%;
 	margin-left:0.4%;
 	color: white;
-
 	label{
 		font-size: 2em;
 		font-family: $fontPrincipal;
@@ -358,10 +357,14 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 	textarea{
 		width:80%;
 		height:90px;
-		resize:none
+		resize:none;
 	}
 	.textInput{
 		width:80%;
+	}
+	*{
+		border-width: 0;
+		border-radius: .5rem;
 	}
 }
 .botonesForm{
@@ -369,7 +372,7 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 	font-weight: bold;
 	margin-top: 5%;
 	margin-right: 5%;
-	padding: 3%
+	padding: 3%;
 }
 .fontGoogle{
 	font-family: $fontPrincipal;
