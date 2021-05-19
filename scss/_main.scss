@@ -2,7 +2,10 @@ body {
 	margin: 0;
 	padding:0;
 }
-
+a{
+	color: inherit;
+	text-decoration: none;
+}
 /*HEADER*/
 .header{
 	display: flex;
@@ -168,7 +171,7 @@ body {
   	background: $hoverColorArte;
   	color: $rosado;
   	font-family: $fontPrincipal;
-  	font-size: 1.2em;
+  	
   	text-align: center;
 	vertical-align: middle; 
 	overflow-wrap: break-word;
@@ -177,15 +180,19 @@ body {
   	transition: opacity .2s, visibility .2s;
 }
 .hoverImgArteChica{
+	font-size: 1.8em;
 	@include hoverImgArte($medidaGridArte, $medidaGridArte);
 }
 .hoverImgArteGrande{
+	font-size: 1.8em;
 	@include hoverImgArte($medidaGridArte*2, $medidaGridArte*2);
 }
 .hoverImgArteLarga{
+	font-size: 1.8em;
 	@include hoverImgArte($gridGapArte + $medidaGridArte*3 , $medidaGridArte)
 }
 .hoverImgArteAlta{
+	font-size: 1.8em;
 	@include hoverImgArte($medidaGridArte, $gridGapArte + $medidaGridArte*2)
 }
 
@@ -195,7 +202,36 @@ body {
 	float: left;
 	font-family: $fontPrincipal;
 	font-size: 2rem;
+	a{//Para los links
+  			&:hover{
+  				text-decoration: underline;
+  			}
+  		} 
+	.listaCV__titulos::marker {
+  		content: "▲";
+  		color: $rosado;
+  	}
 }
+//BUllets apra los años
+.years::marker {
+  	content: "▲";
+	color: $violeta;	
+}
+//Bullets para links
+.links li::marker {
+  	content: "⏵";
+  	animation: pulse 5s infinite alternate;
+}
+//Animación de color de bullets
+@keyframes pulse {
+  0% {
+    color: rgba(253,29,109,1);
+  }
+  100%{
+  	color: rgba(252,176,69,1);
+  }
+}
+
 .spanHabilidades{
 	float: right;
 	font-family: $fontPrincipal;
@@ -362,7 +398,6 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 .page-container {
   position: relative;
   min-height: 100vh;
-  z-index: -1;
 }
 
 /*MEDIA QUERY PARA CELULARES VERTICALES*/
