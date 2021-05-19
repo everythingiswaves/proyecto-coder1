@@ -204,18 +204,18 @@ a{
   			}
   		} 
 	.listaCV__titulos::marker {
-  		content: "▲";
+  		content: "▼";
   		color: $rosado;
   	}
 }
 //BUllets apra los años
 .years::marker {
-  	content: "▲";
+  	content: "▼";
 	color: $violeta;	
 }
 //Bullets para links
 .links li::marker {
-  	content: "‣";
+  	content: "►";
   	animation: pulse 5s infinite alternate;
 }
 //Animación de color de bullets
@@ -332,6 +332,7 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 	flex-direction: column;
 	min-height: 100%;
 	padding-bottom: 40px;
+	margin-left: 1rem;
 }
 /*Fondo pagina contacto*/
 .fondoContacto{
@@ -396,8 +397,10 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
   min-height: 100vh;
 }
 
-/*MEDIA QUERY PARA CELULARES VERTICALES*/
-@media (max-width: 768px) {
+//MEDIA QUERIES/////////////////////////
+
+//MEDIA QUERY PARA CELULARES VERTICALES
+@media (max-width: 768px) and (orientation: portrait) {
 	.header{
 		display: flex;
 		flex-flow: row wrap;
@@ -451,7 +454,6 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 			height:35vw;
 		}
 	}
-	/*falta optmizar*/
 	.hoverImgArteChica{
 		font-size: 0.4em;
 	}
@@ -465,7 +467,10 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 		font-size: 0.4em;
 	}
 
-	/*CV*/
+	//CV
+	.listaCV{
+		font-size: 1rem;
+	}
 	.spanHabilidades{
 		display: inline-block;
 		float: left;
@@ -475,13 +480,13 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 		position: static;
 	}
 
-	/*Grilla */
+	//Grilla 
 	.grillaHabilidades {
 		grid-template-columns: repeat(2,150px);
 		grid-template-rows: repeat(3,50px);
 	}
 
-	/*SLIDERS Y BARRAS*/
+	//SLIDERS Y BARRAS
 	.slider{
 		border-bottom: 3px solid black;
 		width: 125px;
@@ -503,7 +508,7 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 	}
 
 	$largos: 120px, 60px, 100px; //Largos de los sliders 
-	/*ANIMACIONES DE HABILIDADES*/
+	//ANIMACIONES DE HABILIDADES
 	@mixin animacionSlide($largo){
 		0% {
 			left: 0;
@@ -525,9 +530,263 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 			@include animacionSlide($largo)
 		}
 	}
-
+	//CONTACTO
 	.contactoForm{
 		width: 50vw;
 	}
 
+	.page-container{
+		min-height:70vh;
+	}
+}
+//CELUALRES PEQUEÑOS HORIZONTALES
+@media (max-width: 768px) and (orientation: landscape) {
+	.header{
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+	}
+	//INDEX
+	.intro{
+		display: flex;
+		flex-flow: column wrap;
+		margin: 8px 20px 20px 20px;
+	}
+	.intro__texto{
+		font-size: 1.1em;
+		width: 90%;
+		margin-right: 5px;
+		align-self: center;
+	}
+	.spanLandscape{
+		width: 80%;
+	}
+	//CV
+	.listaCV{
+		font-size: 1rem;
+	}	
+
+	.spanHabilidades{
+		display: inline-block;
+		float: left;
+		margin-left: 5%;
+		margin-bottom: 0px;
+		font-size: 1rem;
+		position: static;
+	}
+
+	//Grilla 
+	.grillaHabilidades {
+		grid-template-columns: repeat(2,150px);
+		grid-template-rows: repeat(3,50px);
+	}
+
+	//SLIDERS Y BARRAS
+	.slider{
+		border-bottom: 3px solid black;
+		width: 125px;
+		position: relative;
+		top: 16px;
+		z-index: 1;
+	}
+
+	@mixin handler($slide,$largo){
+		width: 10px;
+		height: 10px;
+		background: black;
+		position: relative;
+		top: 7px;
+		z-index: 2;
+		animation: $slide 3s ;
+		left:$largo;
+		border-radius: 5px;
+	}
+
+	$largos: 120px, 60px, 100px; //Largos de los sliders 
+	//ANIMACIONES DE HABILIDADES
+	@mixin animacionSlide($largo){
+		0% {
+			left: 0;
+	  	}
+	  	100%{
+	    	left: $largo;
+	  	}
+	}
+
+	//For each para crear las clases handler y los keyframes
+	@each $largo in $largos {
+		$i: index($largos, $largo);//Para tener el numero de index
+
+		.handler#{$i} {
+	    	@include handler(slide#{$i}, $largo);
+		}
+
+		@keyframes slide#{$i} {
+			@include animacionSlide($largo);
+		}
+	}
+	//CONTACTO
+	.contactoForm{
+		width: 40vw;
+	}
+	//FOOTER
+	.page-container{
+		min-height:90vw;
+	}
+	.footer{
+		margin-top: 0px;
+	}
+	.footer__img {
+		width:4vw;
+	}
+}
+
+//TABLETS T IPADS 
+@media (min-width: 768px) and (max-width:1024px) {
+	.spanHabilidades{
+		display: inline-block;
+		float: left;
+		margin-left: 5%;
+		margin-bottom: 0px;
+		font-size: 1rem;
+		position: static;
+	}
+
+	//Grilla 
+	.grillaHabilidades {
+		grid-template-columns: repeat(2,150px);
+		grid-template-rows: repeat(3,50px);
+	}
+
+	//SLIDERS Y BARRAS
+	.slider{
+		border-bottom: 3px solid black;
+		width: 125px;
+		position: relative;
+		top: 16px;
+		z-index: 1;
+	}
+
+	@mixin handler($slide,$largo){
+		width: 10px;
+		height: 10px;
+		background: black;
+		position: relative;
+		top: 7px;
+		z-index: 2;
+		animation: $slide 3s ;
+		left:$largo;
+		border-radius: 5px;
+	}
+
+	$largos: 120px, 60px, 100px; //Largos de los sliders 
+	//ANIMACIONES DE HABILIDADES
+	@mixin animacionSlide($largo){
+		0% {
+			left: 0;
+	  	}
+	  	100%{
+	    	left: $largo;
+	  	}
+	}
+
+	//For each para crear las clases handler y los keyframes
+	@each $largo in $largos {
+		$i: index($largos, $largo);//Para tener el numero de index
+
+		.handler#{$i} {
+	    	@include handler(slide#{$i}, $largo);
+		}
+
+		@keyframes slide#{$i} {
+			@include animacionSlide($largo);
+		}
+	}
+
+	//For each para crear las clases handler y los keyframes
+	@each $largo in $largos {
+		$i: index($largos, $largo);//Para tener el numero de index
+
+		.handler#{$i} {
+	    	@include handler(slide#{$i}, $largo);
+		}
+
+		@keyframes slide#{$i} {
+			@include animacionSlide($largo)
+		}
+	}
+		//CONTACTO
+	.contactoForm{
+		width: 40vw;
+	}
+	.footer__img {
+		width:4vw;
+	}
+}
+
+//Para las habilidades en la pagina CV con tables horizontales
+@media (min-width: 1024px) and (max-width: 1850px) {
+	.listaCV{
+		display: inline-block;
+		float: none;
+	}
+	.spanHabilidades{
+		display: inline-block;
+		float: left;
+		margin-left: 5%;
+		margin-bottom: 0px;
+		font-size: 1.5rem;
+		position: static;
+	}
+
+	//Grilla 
+	.grillaHabilidades {
+		grid-template-columns: repeat(2,300px);
+		grid-template-rows: repeat(3,80px);
+	}
+
+	//SLIDERS Y BARRAS
+	.slider{
+		border-bottom: 3px solid black;
+		width: 220px;
+		position: relative;
+		top: 32px;
+		z-index: 1;
+	}
+
+	@mixin handler($slide,$largo){
+		width: 10px;
+		height: 10px;
+		background: black;
+		position: relative;
+		top: 7px;
+		z-index: 2;
+		animation: $slide 3s ;
+		left:$largo;
+		border-radius: 5px;
+	}
+
+	$largos: 215px, 130px, 175px; //Largos de los sliders 
+	//ANIMACIONES DE HABILIDADES
+	@mixin animacionSlide($largo){
+		0% {
+			left: 0;
+	  	}
+	  	100%{
+	    	left: $largo;
+	  	}
+	}
+
+	//For each para crear las clases handler y los keyframes
+	@each $largo in $largos {
+		$i: index($largos, $largo);//Para tener el numero de index
+
+		.handler#{$i} {
+	    	@include handler(slide#{$i}, $largo);
+		}
+
+		@keyframes slide#{$i} {
+			@include animacionSlide($largo);
+		}
+	}
 }
