@@ -387,6 +387,7 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 }
 .fontGoogle{
 	font-family: $fontPrincipal;
+	font-size: 1.5rem;
 }
 /*----------------------------*/
 
@@ -546,6 +547,11 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 	//CONTACTO
 	.contactoForm{
 		width: 50vw;
+	}
+
+	.fontGoogle{
+		font-size: 1rem;
+		display: inline-block;
 	}
 
 	.page-container{
