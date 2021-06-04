@@ -469,16 +469,74 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 			height:35vw;
 		}
 	}
+
+/*--------------------------------*/
+
+	/*ARTE*/
+	.titulo {
+		font-size: 1.3rem;
+	}
+	.gridArte {
+	   display: grid;  
+	   grid-template-columns: repeat(3, $medidaGridArteCelular); 
+	   grid-template-rows: repeat(4, $medidaGridArteCelular);	
+	   grid-template-areas: 
+	    "imgChica imgGrande imgGrande" 
+	    "imgAlta imgGrande imgGrande" 
+	    "imgAlta imgChica2 none"
+	    "imgLarga imgLarga imgLarga";
+	    grid-gap: $gridGapArte;
+	    justify-content: center;
+	    margin-top: 10px;
+	}
+	.imgChica{
+		@include imgArte($medidaGridArteCelular, $medidaGridArteCelular, imgChica);
+	}
+	.imgChica2{
+		@include imgArte($medidaGridArteCelular, $medidaGridArteCelular, imgChica2);
+	}
+	.imgGrande{
+		@include imgArte($medidaGridArteCelular*2, $medidaGridArteCelular*2, imgGrande);
+	}
+	.imgLarga{
+		@include imgArte($gridGapArte + $medidaGridArteCelular*3 , $medidaGridArteCelular, imgLarga);
+	}
+	.imgAlta{
+		@include imgArte($medidaGridArteCelular, $gridGapArte + $medidaGridArteCelular*2, imgAlta);
+	}
+
+	/*HOVER PARA GRILLA*/
+	@mixin hoverImgArte($width, $height){
+		position: absolute;
+		top:0;
+		left:0;
+		width: $width;
+		height: $height;
+	  background: $hoverColorArte;
+	  color: $rosado;
+	  font-family: $fontPrincipal;
+		font-size: 1.8em;  	
+	  text-align: center;
+		vertical-align: middle; 
+		overflow-wrap: break-word;
+	 	visibility: hidden;
+	 	opacity: 0;
+	 	transition: opacity .2s, visibility .2s;
+	}
 	.hoverImgArteChica{
+		@include hoverImgArte($medidaGridArteCelular, $medidaGridArteCelular);
 		font-size: 0.4em;
 	}
 	.hoverImgArteGrande{
+		@include hoverImgArte($medidaGridArteCelular*2, $medidaGridArteCelular*2);
 		font-size: 0.4em;
 	}
 	.hoverImgArteLarga{
+		@include hoverImgArte($gridGapArte + $medidaGridArteCelular*3 , $medidaGridArteCelular)
 		font-size: 0.4em;
 	}
 	.hoverImgArteAlta{
+		@include hoverImgArte($medidaGridArteCelular, $gridGapArte + $medidaGridArteCelular*2)
 		font-size: 0.4em;
 	}
 
@@ -656,6 +714,70 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 
 //TABLETS T IPADS 
 @media (min-width: 768px) and (max-width:1028px) {
+	.gridArte {
+	   display: grid;  
+	   grid-template-columns: repeat(3, $medidaGridArteCelular); 
+	   grid-template-rows: repeat(4, $medidaGridArteCelular);	
+	   grid-template-areas: 
+	    "imgChica imgGrande imgGrande" 
+	    "imgAlta imgGrande imgGrande" 
+	    "imgAlta imgChica2 none"
+	    "imgLarga imgLarga imgLarga";
+	    grid-gap: $gridGapArte;
+	    justify-content: center;
+	    margin-top: 10px;
+	}
+	.imgChica{
+		@include imgArte($medidaGridArteCelular, $medidaGridArteCelular, imgChica);
+	}
+	.imgChica2{
+		@include imgArte($medidaGridArteCelular, $medidaGridArteCelular, imgChica2);
+	}
+	.imgGrande{
+		@include imgArte($medidaGridArteCelular*2, $medidaGridArteCelular*2, imgGrande);
+	}
+	.imgLarga{
+		@include imgArte($gridGapArte + $medidaGridArteCelular*3 , $medidaGridArteCelular, imgLarga);
+	}
+	.imgAlta{
+		@include imgArte($medidaGridArteCelular, $gridGapArte + $medidaGridArteCelular*2, imgAlta);
+	}
+
+	/*HOVER PARA GRILLA*/
+	@mixin hoverImgArte($width, $height){
+		position: absolute;
+		top:0;
+		left:0;
+		width: $width;
+		height: $height;
+	  background: $hoverColorArte;
+	  color: $rosado;
+	  font-family: $fontPrincipal;
+		font-size: 1.8em;  	
+	  text-align: center;
+		vertical-align: middle; 
+		overflow-wrap: break-word;
+	 	visibility: hidden;
+	 	opacity: 0;
+	 	transition: opacity .2s, visibility .2s;
+	}
+	.hoverImgArteChica{
+		@include hoverImgArte($medidaGridArteCelular, $medidaGridArteCelular);
+		font-size: 0.4em;
+	}
+	.hoverImgArteGrande{
+		@include hoverImgArte($medidaGridArteCelular*2, $medidaGridArteCelular*2);
+		font-size: 0.4em;
+	}
+	.hoverImgArteLarga{
+		@include hoverImgArte($gridGapArte + $medidaGridArteCelular*3 , $medidaGridArteCelular)
+		font-size: 0.4em;
+	}
+	.hoverImgArteAlta{
+		@include hoverImgArte($medidaGridArteCelular, $gridGapArte + $medidaGridArteCelular*2)
+		font-size: 0.4em;
+	}	
+/////////////////////
 	.spanHabilidades{
 		display: inline-block;
 		float: left;
