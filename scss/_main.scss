@@ -109,11 +109,6 @@ a{
 		height: 20vw;
 		border: 3px solid black;
 	}
-	video{
-		width:20vw;
-		height: 20vw;
-		border: 3px solid black;	
-	}
 }
 
 /*--------------------------------*/
@@ -168,16 +163,16 @@ a{
 	left:0;
 	width: $width;
 	height: $height;
-  	background: $hoverColorArte;
-  	color: $rosado;
-  	font-family: $fontPrincipal;
+  background: $hoverColorArte;
+  color: $rosado;
+  font-family: $fontPrincipal;
 	font-size: 1.8em;  	
-  	text-align: center;
+ 	text-align: center;
 	vertical-align: middle; 
 	overflow-wrap: break-word;
-  	visibility: hidden;
-  	opacity: 0;
-  	transition: opacity .2s, visibility .2s;
+ 	visibility: hidden;
+ 	opacity: 0;
+  transition: opacity .2s, visibility .2s;
 }
 .hoverImgArteChica{
 	@include hoverImgArte($medidaGridArte, $medidaGridArte);
@@ -314,20 +309,20 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 	font-size: 2rem;
 	font-family: $fontPrincipal;
 }
-.titulo--margin{
-	margin-left:1%;
-}
+
 .titulo--center{
 	text-align: center;
 }
 .subtitulo{
-	display: inline-block;
-	background-color: black;
+	display: inline;
 	color: $rosado;
 	font-size: 1.5rem;
 	font-weight: normal;
 	font-family: $fontPrincipal;
 	margin-top:0;
+	a{
+		background-color: black;
+	}
 }
 .contactoFlex{
 	display: flex;
@@ -340,7 +335,6 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 .fondoContacto{
 	background-image: url("../media/fondoForm.png");
 	background-size: 100vw;
-	//z-index: 0;
 }
 /*FORMULARIO DE NEWSLETTER*/
 .contactoForm{
@@ -390,6 +384,75 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 	font-size: 1.5rem;
 }
 /*----------------------------*/
+////SERVICIOS/////
+.servicio__texto{
+	font-family: "Source Code Pro",monospace;
+  font-size: 1.6rem;
+  width:80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.gridServicios {
+   display: grid;  
+   grid-template-columns: repeat(3, $medidaGridServicios); 
+   grid-template-rows: repeat(2, $medidaGridServicios);	
+   grid-template-areas: 
+    "servicios1 servicios2 servicios3"
+    "servicios4 servicios5 none";
+    grid-gap: $gridGapServicios/2 $gridGapServicios ;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+@mixin imgServicios($gridArea){
+	grid-area: $gridArea;
+	position: relative;
+	img{
+		width: $medidaGridServicios;
+		height: $medidaGridServicios;
+	}
+	//Para que aparezca la info
+	&:hover div{
+		background: $hoverColorServicios;
+	}
+	p{
+		color: white;
+	}
+}
+.servicios1{
+	@include imgServicios(servicios1);
+}
+.servicios2{
+	@include imgServicios(servicios2);
+}
+.servicios3{
+	@include imgServicios(servicios3);
+}
+.servicios4{
+	@include imgServicios(servicios4);
+}
+.servicios5{
+	@include imgServicios(servicios5);
+}
+
+/*HOVER PARA GRILLA*/
+.textoImgServicios{
+	position: absolute;
+	top:0;
+	left:0;
+	width: $medidaGridServicios;
+	height: $medidaGridServicios;
+  //background: $hoverColorArte;
+  color: $rosado;
+  font-family: $fontPrincipal;
+	font-size: 1.8em;  	
+  text-align: center;
+	vertical-align: middle; 
+	overflow-wrap: break-word;
+	transition: background-color .4s;
+}
+
+/*-----------------------------------*/
 
 /*FOOTER*/
 .footer{
@@ -470,11 +533,12 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 		}
 	}
 
-/*--------------------------------*/
-
 	/*ARTE*/
 	.titulo {
 		font-size: 1.3rem;
+	}
+	.subtitulo{
+		font-size: 1rem;
 	}
 	.gridArte {
 	   display: grid;  
@@ -515,7 +579,7 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 	  background: $hoverColorArte;
 	  color: $rosado;
 	  font-family: $fontPrincipal;
-		font-size: 1.8em;  	
+		font-size: 0.4em;  	
 	  text-align: center;
 		vertical-align: middle; 
 		overflow-wrap: break-word;
@@ -525,19 +589,15 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 	}
 	.hoverImgArteChica{
 		@include hoverImgArte($medidaGridArteCelular, $medidaGridArteCelular);
-		font-size: 0.4em;
 	}
 	.hoverImgArteGrande{
 		@include hoverImgArte($medidaGridArteCelular*2, $medidaGridArteCelular*2);
-		font-size: 0.4em;
 	}
 	.hoverImgArteLarga{
 		@include hoverImgArte($gridGapArte + $medidaGridArteCelular*3 , $medidaGridArteCelular)
-		font-size: 0.4em;
 	}
 	.hoverImgArteAlta{
 		@include hoverImgArte($medidaGridArteCelular, $gridGapArte + $medidaGridArteCelular*2)
-		font-size: 0.4em;
 	}
 
 	//CV
@@ -602,9 +662,76 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 			@include animacionSlide($largo)
 		}
 	}
+/*----------------------------*/
+	////SERVICIOS/////
+	.servicio__texto{
+	  font-size: 1rem;;
+	}
+	.gridServicios {
+	   display: grid;  
+	   grid-template-columns: repeat(2, $medidaGridServiciosCelular); 
+	   grid-template-rows: repeat(3, $medidaGridServiciosCelular);	
+	   grid-template-areas: 
+	    "servicios1 servicios2 "
+	    "servicios3 servicios4" 
+	    "servicios5 none";
+	    grid-gap: $gridGapServicios/2 $gridGapServicios ;
+	    justify-content: center;
+	    margin-top: 10px;
+	}
+
+	@mixin imgServicios($gridArea){
+		img{
+			width: $medidaGridServiciosCelular;
+			height: $medidaGridServiciosCelular;
+		}
+	}
+	.servicios1{
+		@include imgServicios(servicios1);
+	}
+	.servicios2{
+		@include imgServicios(servicios2);
+	}
+	.servicios3{
+		@include imgServicios(servicios3);
+	}
+	.servicios4{
+		@include imgServicios(servicios4);
+	}
+	.servicios5{
+		@include imgServicios(servicios5);
+	}
+
+	/*HOVER PARA GRILLA*/
+	.textoImgServicios{
+		width: $medidaGridServiciosCelular;
+		height: $medidaGridServiciosCelular;
+		font-size: 0.4em; 
+	}
+
 	//CONTACTO
+	.subtitulo{
+		margin-right:0;
+		margin-left:0;
+	}
 	.contactoForm{
-		width: 50vw;
+		margin-left:0;
+		width: 90vw;
+		align-items: center;
+  	justify-content: space-around;
+  	label{
+		size: 95%;
+		}
+		select{
+			width: 9em;
+		}
+		textarea{
+			width:95%;
+			resize:none;
+		}
+		.textInput{
+			width:95%;
+		}
 	}
 
 	.fontGoogle{
@@ -847,8 +974,22 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 	}
 		//CONTACTO
 	.contactoForm{
-		width: 40vw;
+		width: 60vw;
+  	label{
+		size: 95%;
+		}
+		select{
+			width: 9em;
+		}
+		textarea{
+			width:95%;
+			resize:none;
+		}
+		.textInput{
+			width:95%;
+		}
 	}
+
 	.footer__img {
 		width:4vw;
 	}
