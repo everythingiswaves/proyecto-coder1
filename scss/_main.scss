@@ -571,21 +571,9 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 
 	/*HOVER PARA GRILLA*/
 	@mixin hoverImgArte($width, $height){
-		position: absolute;
-		top:0;
-		left:0;
 		width: $width;
 		height: $height;
-	  background: $hoverColorArte;
-	  color: $rosado;
-	  font-family: $fontPrincipal;
-		font-size: 0.4em;  	
-	  text-align: center;
-		vertical-align: middle; 
-		overflow-wrap: break-word;
-	 	visibility: hidden;
-	 	opacity: 0;
-	 	transition: opacity .2s, visibility .2s;
+		font-size: 0.7em;  	
 	}
 	.hoverImgArteChica{
 		@include hoverImgArte($medidaGridArteCelular, $medidaGridArteCelular);
@@ -743,6 +731,7 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 		min-height:70vh;
 	}
 }
+
 //CELUALRES PEQUEÑOS HORIZONTALES
 @media (max-width: 768px) and (orientation: landscape) {
 	.header{
@@ -762,6 +751,18 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 	}
 	.spanLandscape{
 		width: 80%;
+	}
+	.hoverImgArteChica{
+		font-size:0.7em;
+	}
+	.hoverImgArteGrande{
+		font-size:0.7em;
+	}
+	.hoverImgArteLarga{
+		font-size:0.7em;
+	}
+	.hoverImgArteAlta{
+		font-size:0.7em;
 	}
 	//CV
 	.listaCV{
@@ -837,6 +838,11 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 	.footer__img {
 		width:4vw;
 	}
+
+	//SERVICIOS
+	.textoImgServicios{
+		font-size: 0.6em; 
+	}
 }
 
 //TABLETS T IPADS 
@@ -872,37 +878,21 @@ $largos: 250px, 120px, 200px; //Largos de los sliders
 
 	/*HOVER PARA GRILLA*/
 	@mixin hoverImgArte($width, $height){
-		position: absolute;
-		top:0;
-		left:0;
 		width: $width;
 		height: $height;
-	  background: $hoverColorArte;
-	  color: $rosado;
-	  font-family: $fontPrincipal;
 		font-size: 1.8em;  	
-	  text-align: center;
-		vertical-align: middle; 
-		overflow-wrap: break-word;
-	 	visibility: hidden;
-	 	opacity: 0;
-	 	transition: opacity .2s, visibility .2s;
 	}
 	.hoverImgArteChica{
 		@include hoverImgArte($medidaGridArteCelular, $medidaGridArteCelular);
-		font-size: 0.4em;
 	}
 	.hoverImgArteGrande{
 		@include hoverImgArte($medidaGridArteCelular*2, $medidaGridArteCelular*2);
-		font-size: 0.4em;
 	}
 	.hoverImgArteLarga{
 		@include hoverImgArte($gridGapArte + $medidaGridArteCelular*3 , $medidaGridArteCelular)
-		font-size: 0.4em;
 	}
 	.hoverImgArteAlta{
 		@include hoverImgArte($medidaGridArteCelular, $gridGapArte + $medidaGridArteCelular*2)
-		font-size: 0.4em;
 	}	
 /////////////////////
 	.spanHabilidades{
